@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -49,9 +50,14 @@ public class DashboardUI extends JFrame
 		setTitle("Dashboard");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		setBounds(100, 100, 850, 550);
+		/*setBounds(100, 100, 850, 550);
 		setResizable(false);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);*/
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+		setSize(screenSize);
+		setVisible(true);
+		setResizable(false);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -2,7 +2,9 @@ package com.des.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -79,9 +81,14 @@ public class AddCustomerUI extends JFrame
 		setTitle("Add Customer Detail");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		setBounds(100, 100, 850, 550);
+		/*setBounds(100, 100, 850, 550);
 		setResizable(false);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);*/
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+		setSize(screenSize);
+		setVisible(true);
+		setResizable(false);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -95,7 +102,7 @@ public class AddCustomerUI extends JFrame
 		
 		// set anniversary pannel for custom display
 		anniversaryPannel = new JPanel();
-		anniversaryPannel.setBounds(393, 214, 372, 55);
+		anniversaryPannel.setBounds(467, 210, 442, 55);
 		panel.add(anniversaryPannel);
 		anniversaryPannel.setLayout(null);
 
@@ -206,7 +213,7 @@ public class AddCustomerUI extends JFrame
 			}
 		});
 		
-		btnSave.setBounds(352, 397, 89, 23);
+		btnSave.setBounds(409, 433, 89, 23);
 		panel.add(btnSave);		
 	}
 
@@ -218,14 +225,14 @@ public class AddCustomerUI extends JFrame
 		ButtonGroup maritialStatusGroup = new ButtonGroup();
 
 		rdbtnMale = new JRadioButton("Male");
-		rdbtnMale.setBounds(144, 93, 109, 23);
+		rdbtnMale.setBounds(187, 96, 109, 23);
 		// set default to true
 		rdbtnMale.setSelected(true);
 		panel.add(rdbtnMale);
 		genderGroup.add(rdbtnMale);
 
 		rdbtnFemale = new JRadioButton("Female");
-		rdbtnFemale.setBounds(144, 119, 109, 23);
+		rdbtnFemale.setBounds(187, 122, 109, 23);
 		panel.add(rdbtnFemale);
 		genderGroup.add(rdbtnFemale);
 
@@ -241,7 +248,7 @@ public class AddCustomerUI extends JFrame
 				}
 			}
 		});
-		rdbtnSingle.setBounds(531, 141, 109, 23);
+		rdbtnSingle.setBounds(702, 138, 109, 23);
 		// set default to true
 		rdbtnSingle.setSelected(true);
 		panel.add(rdbtnSingle);
@@ -259,7 +266,7 @@ public class AddCustomerUI extends JFrame
 				}
 			}
 		});
-		rdbtnMarried.setBounds(531, 167, 109, 23);
+		rdbtnMarried.setBounds(702, 164, 109, 23);
 		panel.add(rdbtnMarried);
 		maritialStatusGroup.add(rdbtnMarried);
 
@@ -294,21 +301,21 @@ public class AddCustomerUI extends JFrame
 		}
 		
 		txtFullName = new JTextField();
-		txtFullName.setBounds(134, 35, 205, 20);
+		txtFullName.setBounds(177, 38, 205, 20);
 		panel.add(txtFullName);
 		txtFullName.setColumns(10);
 		txtFullName.requestFocus();
 
 		txtfrmtdDob = new JFormattedTextField(df);
 		txtfrmtdDob.setToolTipText("date in dd-mmm-yyyy format");
-		txtfrmtdDob.setBounds(134, 66, 102, 20);
+		txtfrmtdDob.setBounds(177, 69, 102, 20);
 		panel.add(txtfrmtdDob);
 		txtfrmtdDob.setColumns(10);
 		txtfrmtdDob.setValue(null);
 
 		txtfrmtdAnniversary = new JFormattedTextField(df);
 		txtfrmtdAnniversary.setToolTipText("date in dd-mmm-yyyy format");
-		txtfrmtdAnniversary.setBounds(112, 19, 107, 20);
+		txtfrmtdAnniversary.setBounds(194, 19, 107, 20);
 		anniversaryPannel.add(txtfrmtdAnniversary);
 		txtfrmtdAnniversary.setColumns(10);
 		txtfrmtdAnniversary.setValue(null);
@@ -316,33 +323,33 @@ public class AddCustomerUI extends JFrame
 		txtAreaAddress = new JTextArea();
 		txtAreaAddress.setColumns(10);
 		txtAreaAddress.setRows(10);
-		txtAreaAddress.setBounds(134, 153, 205, 100);
+		txtAreaAddress.setBounds(177, 156, 205, 100);
 		panel.add(txtAreaAddress);
 
 		txtLandmark = new JTextField();
-		txtLandmark.setBounds(134, 278, 215, 20);
+		txtLandmark.setBounds(177, 281, 215, 20);
 		panel.add(txtLandmark);
 		txtLandmark.setColumns(10);
 
 		txtfrmtdPincode = new JFormattedTextField(maskPinCode);
-		txtfrmtdPincode.setBounds(134, 343, 63, 20);
+		txtfrmtdPincode.setBounds(177, 346, 63, 20);
 		panel.add(txtfrmtdPincode);
 		txtfrmtdPincode.setColumns(6);
 
 		txtfrmtdContactNo = new JFormattedTextField(maskContactNo);
 		txtfrmtdContactNo.setToolTipText("10 digit mobile number");
 		txtfrmtdContactNo.setColumns(10);
-		txtfrmtdContactNo.setBounds(504, 41, 102, 20);
+		txtfrmtdContactNo.setBounds(675, 38, 102, 20);
 		panel.add(txtfrmtdContactNo);
 
 		txtEmail = new JTextField();
 		txtEmail.setToolTipText("Email address should be in proper format");
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(504, 95, 205, 20);
+		txtEmail.setBounds(675, 92, 205, 20);
 		panel.add(txtEmail);
 		
 		txtCity = new JTextField();
-		txtCity.setBounds(134, 312, 205, 20);
+		txtCity.setBounds(177, 315, 205, 20);
 		panel.add(txtCity);
 		txtCity.setColumns(10);
 	}
@@ -350,55 +357,55 @@ public class AddCustomerUI extends JFrame
 	private void setLables(JPanel panel, JPanel anniversaryPannel)
 	{
 		lblFullName = new JLabel("Full Name");
-		lblFullName.setBounds(26, 38, 98, 20);
+		lblFullName.setBounds(26, 38, 129, 20);
 		panel.add(lblFullName);
 
 		lblDob = new JLabel("DOB");
-		lblDob.setBounds(26, 69, 98, 17);
+		lblDob.setBounds(26, 69, 129, 17);
 		panel.add(lblDob);
 
 		lblGender = new JLabel("Gender");
-		lblGender.setBounds(26, 109, 98, 20);
+		lblGender.setBounds(26, 109, 129, 20);
 		panel.add(lblGender);
 
 		lblAddress = new JLabel("Address");
-		lblAddress.setBounds(26, 157, 98, 20);
+		lblAddress.setBounds(26, 157, 129, 20);
 		panel.add(lblAddress);
 
 		lblLandmark = new JLabel("Landmark");
-		lblLandmark.setBounds(26, 281, 98, 20);
+		lblLandmark.setBounds(26, 281, 129, 20);
 		panel.add(lblLandmark);
 
 		lblPincode = new JLabel("Pincode");
-		lblPincode.setBounds(26, 346, 98, 20);
+		lblPincode.setBounds(26, 346, 129, 20);
 		panel.add(lblPincode);
 
 		lblContactNo = new JLabel("Contact No");
-		lblContactNo.setBounds(393, 43, 101, 17);
+		lblContactNo.setBounds(467, 40, 198, 17);
 		panel.add(lblContactNo);
 
 		lblEmail = new JLabel("Email Id");
-		lblEmail.setBounds(393, 92, 101, 27);
+		lblEmail.setBounds(467, 89, 198, 27);
 		panel.add(lblEmail);
 
 		lblAnniversary = new JLabel("Anniversary");
-		lblAnniversary.setBounds(10, 14, 92, 30);
+		lblAnniversary.setBounds(10, 14, 114, 30);
 		anniversaryPannel.add(lblAnniversary);
 
 		lblMaritialStatus = new JLabel("Maritial Status");
-		lblMaritialStatus.setBounds(393, 143, 101, 37);
+		lblMaritialStatus.setBounds(467, 140, 198, 37);
 		panel.add(lblMaritialStatus);
 		
 		label = new JLabel("(dd - mmm - yyyy)");
-		label.setBounds(236, 14, 114, 31);
+		label.setBounds(318, 14, 114, 31);
 		anniversaryPannel.add(label);
 		
 		lblCity = new JLabel("City");
-		lblCity.setBounds(26, 315, 98, 17);
+		lblCity.setBounds(26, 315, 129, 17);
 		panel.add(lblCity);
 		
 		lblddMmm = new JLabel("(dd - mmm - yyyy)");
-		lblddMmm.setBounds(246, 62, 114, 31);
+		lblddMmm.setBounds(289, 65, 114, 31);
 		panel.add(lblddMmm);
 	}
 	

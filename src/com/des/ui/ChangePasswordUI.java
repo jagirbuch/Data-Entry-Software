@@ -1,9 +1,11 @@
 package com.des.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -37,9 +39,14 @@ public class ChangePasswordUI extends JFrame
 		setTitle("Change Password");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		setBounds(100, 100, 850, 550);
+		/*setBounds(100, 100, 850, 550);
 		setResizable(false);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);*/
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+		setSize(screenSize);
+		setVisible(true);
+		setResizable(false);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -119,7 +126,7 @@ public class ChangePasswordUI extends JFrame
 				}
 			}
 		});
-		btnChangePassword.setBounds(359, 208, 160, 35);
+		btnChangePassword.setBounds(158, 224, 160, 35);
 		panel.add(btnChangePassword);
 		
 	}
@@ -127,15 +134,15 @@ public class ChangePasswordUI extends JFrame
 	private void setTextBoxes(JPanel panel)
 	{
 		pwdCurrentpassword = new JPasswordField();
-		pwdCurrentpassword.setBounds(454, 39, 134, 20);
+		pwdCurrentpassword.setBounds(253, 55, 134, 20);
 		panel.add(pwdCurrentpassword);
 		
 		pwdNewPassword = new JPasswordField();
-		pwdNewPassword.setBounds(454, 84, 134, 20);
+		pwdNewPassword.setBounds(253, 100, 134, 20);
 		panel.add(pwdNewPassword);
 		
 		pwdRetypePassword = new JPasswordField();
-		pwdRetypePassword.setBounds(454, 135, 134, 20);
+		pwdRetypePassword.setBounds(253, 151, 134, 20);
 		panel.add(pwdRetypePassword);
 		
 	}
@@ -143,15 +150,15 @@ public class ChangePasswordUI extends JFrame
 	private void setLables(JPanel panel)
 	{
 		JLabel lblCurrentPassword = new JLabel("Current Password");
-		lblCurrentPassword.setBounds(292, 39, 134, 28);
+		lblCurrentPassword.setBounds(45, 55, 180, 28);
 		panel.add(lblCurrentPassword);
 		
 		JLabel lblNewPassword = new JLabel("New Password");
-		lblNewPassword.setBounds(292, 84, 134, 28);
+		lblNewPassword.setBounds(45, 100, 180, 28);
 		panel.add(lblNewPassword);
 		
 		JLabel lblRetypePassword = new JLabel("Retype Password");
-		lblRetypePassword.setBounds(292, 135, 134, 28);
+		lblRetypePassword.setBounds(45, 151, 180, 28);
 		panel.add(lblRetypePassword);
 		
 	}

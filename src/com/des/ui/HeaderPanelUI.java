@@ -127,6 +127,17 @@ public class HeaderPanelUI extends JPanel
 			}
 		});
 		add(btnChangePassword);
+		
+		String manageUser = "Manage\nUser";
+		JButton btnManageUser = new JButton("<html>" + manageUser.replaceAll("\\n", "<br>") + "</html>");
+		btnManageUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				new ManageUserUI().setVisible(true);
+			}
+		});
+		add(btnManageUser);
+		
 
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {

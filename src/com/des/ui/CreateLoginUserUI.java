@@ -1,8 +1,10 @@
 package com.des.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -44,9 +46,14 @@ public class CreateLoginUserUI extends JFrame
 		setTitle("Create Login User");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		setBounds(100, 100, 850, 550);
+		/*setBounds(100, 100, 850, 550);
 		setResizable(false);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);*/
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+		setSize(screenSize);
+		setVisible(true);
+		setResizable(false);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -121,7 +128,7 @@ public class CreateLoginUserUI extends JFrame
 				}
 			}			
 		});
-		btnSave.setBounds(375, 281, 89, 23);
+		btnSave.setBounds(206, 283, 89, 23);
 		panel.add(btnSave);
 		
 	}
@@ -129,41 +136,41 @@ public class CreateLoginUserUI extends JFrame
 	private void setTextBoxes(JPanel panel)
 	{
 		txtUserId = new JTextField();
-		txtUserId.setBounds(406, 42, 137, 20);
+		txtUserId.setBounds(237, 44, 137, 20);
 		panel.add(txtUserId);
 		txtUserId.setColumns(10);
 		txtUserId.requestFocus();
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(409, 88, 134, 20);
+		passwordField.setBounds(240, 90, 134, 20);
 		panel.add(passwordField);
 		
 		cnfrmPasswordField = new JPasswordField();
-		cnfrmPasswordField.setBounds(409, 138, 134, 20);
+		cnfrmPasswordField.setBounds(240, 140, 134, 20);
 		panel.add(cnfrmPasswordField);
 		
 		cmbRole = new JComboBox<String>();
 		cmbRole.setModel(new DefaultComboBoxModel<String>(new String[] {"Admin", "User"}));
-		cmbRole.setBounds(411, 190, 132, 20);
+		cmbRole.setBounds(242, 192, 132, 20);
 		panel.add(cmbRole);
 	}
 
 	public void setLables(JPanel panel)
 	{
 		JLabel lblUserId = new JLabel("User Id");
-		lblUserId.setBounds(264, 42, 114, 24);
+		lblUserId.setBounds(35, 44, 195, 24);
 		panel.add(lblUserId);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(264, 88, 114, 24);
+		lblPassword.setBounds(35, 90, 195, 24);
 		panel.add(lblPassword);
 		
 		JLabel lblConfirmPassword = new JLabel("Confirm Password");
-		lblConfirmPassword.setBounds(264, 138, 135, 24);
+		lblConfirmPassword.setBounds(35, 140, 195, 24);
 		panel.add(lblConfirmPassword);
 		
 		JLabel lblRole = new JLabel("Role");
-		lblRole.setBounds(264, 192, 114, 24);
+		lblRole.setBounds(35, 194, 195, 24);
 		panel.add(lblRole);
 	}
 	

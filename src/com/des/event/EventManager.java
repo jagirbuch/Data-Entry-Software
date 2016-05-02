@@ -58,4 +58,16 @@ public class EventManager
 		final String query = "UPDATE users SET password = '"+password+"' WHERE userid = '"+userId+"'" ;
 		new DbManager().executeUpdate(query);
 	}
+
+	public static void deleteUser(Integer id) throws ClassNotFoundException, SQLException
+	{
+		final String query = "DELETE FROM users WHERE id="+id;
+		new DbManager().executeUpdate(query);
+	}
+
+	public static List<Map<String, Object>> getAllUserList() throws ClassNotFoundException, SQLException
+	{
+		final String query = "SELECT * FROM users";
+		return new DbManager().executeQueryForUsers(query);
+	}
 }

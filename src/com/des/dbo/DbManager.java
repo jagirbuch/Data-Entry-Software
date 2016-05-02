@@ -16,7 +16,7 @@ public class DbManager
 	private final String	PASSWORD	= "root";
 	private final String	DRIVER		= "com.mysql.jdbc.Driver";
 	private final String	HOST		= "localhost:3306";
-	private final String	DBNAME		= "test";
+	private final String	DBNAME		= "des";
 	private final String	URL			= "jdbc:mysql://" + HOST + "/" + DBNAME;
 
 	// method for establishing connection
@@ -76,7 +76,7 @@ public class DbManager
 					customerMap.put("dob", resultSet.getString("dob"));
 					customerMap.put("maritialStatus", resultSet.getString("maritialStatus"));
 					customerMap.put("anniversary", resultSet.getString("anniversary"));
-					customerMap.put("city", resultSet.getString("city"));
+					customerMap.put("city", resultSet.getString("city"));					
 
 					customers.add(customerMap);
 				}
@@ -89,6 +89,38 @@ public class DbManager
 		}
 		return customers;
 	}
+	
+	// method for executing select query
+		public List<Map<String, Object>> executeQueryForUsers(String query) throws SQLException, ClassNotFoundException
+		{
+			ResultSet resultSet = null;
+			Connection connection = null;
+			List<Map<String, Object>> users = new ArrayList<Map<String, Object>>();
+			try
+			{
+				connection = connection();
+				if (connection != null)
+				{
+					PreparedStatement ps = connection.prepareStatement(query);
+					resultSet = ps.executeQuery();
+					Map<String, Object> userMap = null;
+					while (resultSet.next())
+					{
+						userMap = new HashMap<String, Object>();
+						userMap.put("id", resultSet.getInt("id"));
+						userMap.put("userName", resultSet.getString("userid"));
+
+						users.add(userMap);
+					}
+				}
+			}		
+			finally
+			{
+				if (connection != null)
+					connection.close();
+			}
+			return users;
+		}
 
 	// method for executing select query
 	public boolean isAuthenticated(String userId, String password) throws ClassNotFoundException, SQLException
